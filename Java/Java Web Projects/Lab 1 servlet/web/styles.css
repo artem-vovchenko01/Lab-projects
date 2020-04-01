@@ -1,0 +1,72 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Feb 6, 2020, 3:06:45 PM
+    Author     : avovc
+*/
+
+body {
+    margin: 0 auto;
+    background-color: #ccffdd;
+}
+
+.main {
+    background-image: url("images/3back.jpg");
+}
+
+.profilePic {
+    width: 350px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    transition: 0.3s;
+}
+
+p {
+    text-align: center;
+}
+
+a:hover {
+    color: blue;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+
+.tab {
+  background-color: orange;
+  border: none;
+  padding: 2px 4px;
+  text-align: center;
+  font-size: 18px;
+  margin: 2px 1px;
+  opacity: 0.9;
+  transition: 0.3s;
+}
+
+.tab:hover {
+    opacity: 1;
+    border-bottom: 2px;
+    border-bottom-color: #ffaa11;
+}
+
+.greetingFrame {
+    background-color: white;
+    margin:0 30%;
+}
+
+.textLarge {
+    text-align: center;
+    color: black;
+    font-size: 28px;
+}
