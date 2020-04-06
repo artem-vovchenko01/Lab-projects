@@ -1,6 +1,25 @@
-public class LinkedListStack<T> implements Stack<T> {
+import java.util.Iterator;
+
+public class LinkedListStack<T> implements Stack<T>, Iterable<T> {
     private Node<T> head;
     private int size;
+    private class LinkedListStackIterator implements Iterator<T> {
+        Node<T> current;
+        LinkedListStackIterator() {
+            current = head;
+        }
+        @Override
+        public boolean hasNext() {
+            return current != null;
+        }
+
+        @Override
+        public T next() {
+            T val = current.val;
+            current = current.next;
+            return val;
+        }
+    }
     private static class Node<T> {
         Node<T> next;
         T val;
@@ -19,7 +38,7 @@ public class LinkedListStack<T> implements Stack<T> {
     }
 
     public void push (T val) {
-        Node temp  = head;
+        Node<T> temp  = head;
         head = new Node<>(val);
         head.next = temp;
         size++;
@@ -51,5 +70,10 @@ public class LinkedListStack<T> implements Stack<T> {
             temp = temp.next;
         }
         return str.toString() + "\b\b]";
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new LinkedListStackIterator();
     }
 }

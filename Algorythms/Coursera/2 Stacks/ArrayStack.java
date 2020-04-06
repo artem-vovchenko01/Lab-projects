@@ -1,8 +1,26 @@
-public class ArrayStack<T> implements Stack<T> {
+import java.util.Iterator;
+
+public class ArrayStack<T> implements Stack<T>, Iterable<T> {
     private T[] arr;
     private int pointer;
     private int capacity;
     private final int INIT_CAPACITY = 16;
+
+    private class ArrayStackIterator implements Iterator<T> {
+        int current;
+        ArrayStackIterator() {
+            this.current = pointer - 1;
+        }
+        @Override
+        public boolean hasNext() {
+            return current != -1;
+        }
+
+        @Override
+        public T next() {
+            return arr[current--];
+        }
+    }
 
     public ArrayStack () {
         arr =  (T[]) new Object[INIT_CAPACITY];
@@ -59,5 +77,10 @@ public class ArrayStack<T> implements Stack<T> {
             s.append(arr[i]).append(", ");
         }
         return s.toString() + "\b\b]";
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new ArrayStackIterator();
     }
 }
