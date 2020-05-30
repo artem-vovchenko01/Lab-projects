@@ -1,12 +1,17 @@
 import random
 
 class QuickSorter:
+    def __init__(self, arr):
+        self.arr = arr
 
-    def sort (self, arr, low, high):
+    def sort(self):
+        self.rec_sort(self.arr, 0, len(self.arr) - 1)
+
+    def rec_sort (self, arr, low, high):
         if low < high:
             pivot = self.partition(arr, low, high)
-            self.sort(arr, low, pivot - 1)
-            self.sort(arr, pivot + 1, high)
+            self.rec_sort(arr, low, pivot - 1)
+            self.rec_sort(arr, pivot + 1, high)
 
     def partition (self, arr, low, high):
         p_index = low
@@ -19,8 +24,11 @@ class QuickSorter:
         arr[p_index], arr[pivot] = arr[pivot], arr[p_index]
         return p_index
 
-arr1 = [4,4,6,67,75,65,7,7,6,85,7,6]
-arr1 = [random.randint(-1000, 1000) for i in range(0,1000000)]
-QuickSorter().sort(arr1, 0, len(arr1) - 1)
+def test():
+    nums = [random.randint(-100, 100) for i in range(1000)]
+    sorter = QuickSorter(nums)
+    sorter.sort()
+    print(nums)
 
-print(arr1[-100:-1])
+if __name__ == "__main__":
+    test()

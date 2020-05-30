@@ -1,5 +1,11 @@
+import random
+
 class BubbleSorter:
-    def sort(self, arr):
+    def __init__(self, arr):
+        self.arr = arr
+        
+    def sort(self):
+        arr = self.arr
         not_sorted = True
         for j in range (len(arr) - 1):
             if not_sorted:
@@ -11,10 +17,11 @@ class BubbleSorter:
             else:
                 break
             
+def test():
+    nums = [random.randint(-100, 100) for i in range(100)]
+    sorter = BubbleSorter(nums)
+    sorter.sort()
+    print(nums)
 
-
-arr1 = [4,5,7,8,4,5,7,8,6,44,4,4,4,5,5,5,65]
-# arr1 = [3,4,5,6,7,8]
-BubbleSorter().sort(arr1)
-
-print(arr1)
+if __name__ == "__main__":
+    test()

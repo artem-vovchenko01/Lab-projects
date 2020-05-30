@@ -5,7 +5,8 @@ class InsertionSorter:
     def __init__(self, arr):
         self.__arr = arr
 
-    def sort_asc (self):
+    def sort_asc(self):
+        """ Sort in ascending order """
         arr = list(self.__arr)
         for i in range(1, len(arr)):
             key = arr[i]
@@ -17,6 +18,7 @@ class InsertionSorter:
         return arr
 
     def sort_desc (self):
+        """ Sort in descending order """
         arr = list(self.__arr)
         for i in range(1, len(arr)):
             key = arr[i]
@@ -27,22 +29,13 @@ class InsertionSorter:
             arr[j + 1] = key
         return arr
 
-    def search (self, item):
-        for i in range(0, len(self.__arr)):
-            if arr[i] == item:
-                return i
-        return None
+def test():
+    nums = [random.randint(-100, 100) for i in range(100)]
+    sorter = InsertionSorter(nums)
+    arr = sorter.sort_asc()
+    print(arr)
+    arr = sorter.sort_desc()
+    print(arr)
 
-    def get_arr (self):
-        return self.__arr
-
-arr = [random.randint(-100, 100) for i in range(100)]
-
-sorter = InsertionSorter(arr)
-
-asc = sorter.sort_asc()
-desc = sorter.sort_desc()
-search = sorter.search(50)
-print(asc)
-print(desc)
-print(search)
+if __name__ == "__main__":
+    test()
