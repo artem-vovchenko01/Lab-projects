@@ -135,6 +135,6 @@ public class Percolation {
     }
 
     public static void main(String[] args) {
-        int[] arr = new int[350_000_000];
+        
     }
 }
